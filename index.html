@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Картинка + Flex-блоки</title>
+  <link href="Main-menu.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- Верхние кнопки -->
+  <div class="top-buttons" id="top-buttons">
+    <label for="menu-mobile" class="toggle-button" id="menu-toggle">Меню</label>
+    <a href="reservation.html" class="reserve-button">Зарезервировать</a>
+  </div>
+  
+  <input type="checkbox" id="menu-mobile">                 
+
+  <!-- Картинка с надписью -->
+  <div class="background-phon">
+    <div class="title-overlay">Quay</div>
+  </div>
+
+  <!-- Контент -->
+  <div class="flex-container">
+    <div class="c1">
+      <h1>Меню</h1>
+      <p>
+        Последовательность редких и прекрасных ингредиентов, где текстура, вкус и<br>
+        гармония имеют первостепенное значение. Окунитесь в атмосферу обеда в Quay с меню Питера<br>
+        Гиломора и тщательно подобранной винной картой.
+      </p>
+      <a href="menu.html" class="btn btn-dark mt-4" style="padding: 12px 24px; font-size: 18px;">Перейти в меню</a>
+    </div>
+    <div class="c2">
+      <img src="images/photo_meal_on_top.jpg" alt="Картинка в правом блоке" class="img-style img-fluid">
+    </div>
+  </div>
+
+  <!-- Второй блок -->
+  <div class="flex-container2 background-phon">
+    <div class="c3">
+      <div>
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 48px; margin-bottom: 20px;">Our Vineyards</h2>
+        <p>
+          Наши виноградники цветут под солнцем,<br>
+питаемые прибрежными бризами и плодородной почвой,<br>
+производя виноград замечательного вкуса.
+        </p>
+      </div>
+    </div>
+    <div class="c4"></div>
+  </div>
+
+  <!-- Контактная форма -->
+  <div class="mid">
+    <div class="contacts-container">
+      <div class="contacts-text">
+        <h2>Leave your contacts</h2>
+      </div>
+      <div class="contacts-form">
+        <input type="text" class="form-control" placeholder="Last Name" required>
+        <input type="text" class="form-control" placeholder="First Name" required>
+        <input type="email" class="form-control" placeholder="name@example.com" required>
+        <!-- Кнопка Submit -->
+        <button type="submit" class="form-control" style="background-color: #F5F5DC; color: black; border: 1px solid #888; font-size: 16px; padding: 12px; cursor: pointer; font-weight: bold; border-radius: 5px; transition: background-color 0.3s ease;">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Сайдбар -->
+  <div class="overlay" id="overlay"></div>
+  <div class="sidebar" id="sidebar">
+    <ul class="main-menu">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li><a href="about.html" >О нас</a></li>
+      <li><a href="reservation.html">Зарезервировать</a></li>
+       <li><a href="menu.html">Наше Меню</a></li>
+      <li><a href="Вакансии.html">Вакансии</a></li>
+      <li><a href="reviews.html">Отзывы</a></li>
+      
+    </ul>
+  </div>
+
+  <!-- Футер -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 style="color:black">Quay</h3>
+        <p style="color:black">Элитный ресторан с видом на гавань.</p>
+      </div>
+      <div class="footer-column">
+        <h4 style="color:black">Навигация</h4>
+        <ul>
+        
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">О нас</a></li>
+          <li><a href="#">Меню</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4 style="color:black">Контакты</h4>
+        <p style="color:black">Тел: +7 (999) 123-45-67<br>Email: info@quay.ru</p>
+        <p style="color:black">Адрес: Набережная, 12, Москва</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="color:black">&copy; 2025 Quay. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const toggleButton = document.querySelector('.toggle-button');
+    const overlay = document.getElementById('overlay');
+    const sidebar = document.getElementById('sidebar');
+    const topButtons = document.getElementById('top-buttons');
+
+    toggleButton.addEventListener('click', () => {
+      overlay.style.display = 'block';
+      setTimeout(() => {
+        overlay.style.opacity = '1';
+        sidebar.style.left = '0';
+        sidebar.style.opacity = '1';
+      }, 10);
+    });
+
+    overlay.addEventListener('click', () => {
+      overlay.style.opacity = '0';
+      sidebar.style.left = '-400px';
+      sidebar.style.opacity = '0';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 300);
+    });
+
+    window.addEventListener('blur', () => {
+      document.title = "элитная харчевня";
+    });
+
+    window.addEventListener('focus', () => {
+      document.title = "харчевня";
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        topButtons.classList.add('scrolled');
+      } else {
+        topButtons.classList.remove('scrolled');
+      }
+    });
+    
+  </script>
+
+</body>
+</html>

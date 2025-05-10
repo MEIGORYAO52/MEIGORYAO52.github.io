@@ -1,0 +1,200 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    .background-phon {
+      width: 100%;
+      height: 100vh;
+      background: url('images/pic1.jpeg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    .title-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Great Vibes', cursive;
+      font-size: 80px;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    .about-section {
+      padding: 40px 20px;
+      background-color: #F5F5DC;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .about-section .history-text {
+      max-width: 900px;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .about-section img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+
+    .team-section {
+      padding: 40px 20px;
+      background-color: #eae4d6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .team-section h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .team-member {
+      background-color: #fff;
+      width: 250px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .team-member h4 {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .team-member p {
+      font-size: 16px;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .back-to-home-button {
+      background-color: black;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 40px auto;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-to-home-button:hover {
+      background-color: #F5F5DC;
+      color: black;
+    }
+    
+    .site-footer {
+      background-color: #F5F5DC;
+      color: white;
+      padding: 40px 20px 20px;
+      font-size: 16px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto 20px;
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+      margin: 10px;
+    }
+
+    .footer-column h3, .footer-column h4 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 6px 0;
+    }
+
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      font-size: 14px;
+      color: #aaa;
+    }
+    
+     .back-to-home-button {
+      background-color: black;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }

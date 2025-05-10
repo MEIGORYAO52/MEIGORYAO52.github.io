@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Меню</title>
+ 
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+      overflow-x: hidden;
+    }
+
+    .background-phon {
+      width: 100%;
+      height: 100vh;
+      background: url('images/pic1.jpeg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    .title-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Great Vibes', cursive;
+      font-size: 80px;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    .flex-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      background: #F5F5DC;
+    }
+
+    .menu-group {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .menu-item {
+      background-color: #F5F5DC;
+      width: 250px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease;
+      background-size: cover;
+      background-position: center;
+      color: transparent;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-item h3 {
+      position: relative;
+      margin-top: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .menu-item p {
+      position: relative;
+      font-size: 16px;
+      color: white;
+      margin-top: 10px;
+    }
+    .menu-item {
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* тёмный фильтр */
+  z-index: 1;
+}
+
+.menu-item h3,
+.menu-item p {
+  position: relative;
+  z-index: 2;
+}
+    .back-to-home-button {
+      background-color: black;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .back-to-home-button:hover {
+      background-color: #F5F5DC;
+      color: black;
+    }
+
+    .site-footer {
+      background-color: #222;
+      color: #ccc;
+      padding: 40px 20px 20px;
+      font-size: 16px;
+      margin-top: 0;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* Модальное окно */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 900px;
+  height: 500px; /* фиксированная высота для выравнивания */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-text {
+  padding: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.modal-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.modal-text p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+  .site-footer {
+       background-color:#222;
+      color: white;
+      padding: 40px 20px 20px;
+      font-size: 16px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto 20px;
+    
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+      margin: 10px;
+    }
+
+    .footer-column h3, .footer-column h4 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 6px 0;
+    }
+
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      font-size: 14px;
+      color: #aaa;
+      
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-phon">
+    <div class="title-overlay">Меню</div>
+  </div>
+
+  <div class="flex-container">
+    <div class="menu-group">
+      <div class="menu-item" style="background-image: url('images/Espresso.jpg');">
+        <h3>Кофе Эспрессо</h3>
+        <p>Превосходный итальянский эспрессо с насыщенным вкусом.</p>
+      </div>
+      <div class="menu-item" style="background-image: url('images/Cappucino.jpg');">
+        <h3>Капучино</h3>
+        <p>Кофе с мягкой пеной и приятным ароматом.</p>
+      </div>
+      <div class="menu-item" style="background-image: url('images/Latte.jpg');">
+        <h3>Латте</h3>
+        <p>Легкий кофе с молоком, который дарит тепло и комфорт.</p>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="menu-item" style="background-image: url('images/Tiramisu.jpg');">
+        <h3>Тирамису</h3>
+        <p>Нежный десерт с маскарпоне, прослойками кофе и какао.</p>
+      </div>
+      <div class="menu-item" style="background-image: url('images/Chocolate cake.jpg');">
+        <h3>Шоколадный торт</h3>
+        <p>Мягкий торт с насыщенным вкусом шоколада.</p>
+      </div>
+      <div class="menu-item" style="background-image: url('images/Cheese cake.jpg');">
+        <h3>Чизкейк</h3>
+        <p>Классический чизкейк с кремовой текстурой.</p>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="menu-item" style="background-image: url('images/Karbonara.jpg');">
+        <h3>Паста Карбонара</h3>
+        <p>Итальянская паста с беконом и сливочным соусом.</p>
+      </div>
+      <div class="menu-item" style="background-image: url('images/Margarita.jpg');">
+        <h3>Пицца Маргарита</h3>
+        <p>Традиционная пицца с томатным соусом и моцареллой.</p>
+      </div>
+      <div class="menu-item" style="background-image: url('images/Ceaser.jpg');">
+        <h3>Салат Цезарь</h3>
+        <p>Свежий салат с курицей, пармезаном и соусом Цезарь.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-to-home-button">Вернуться на главную</a>
+
+ <!-- Футер -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 style="color:white">Quay</h3>
+        <p style="color:white">Элитный ресторан с видом на гавань.</p>
+      </div>
+      <div class="footer-column">
+        <h4 style="color:white">Навигация</h4>
+        <ul>
+        
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">О нас</a></li>
+          <li><a href="#">Меню</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4 style="color:white">Контакты</h4>
+        <p style="color:white">Тел: +7 (999) 123-45-67<br>Email: info@quay.ru</p>
+        <p style="color:white">Адрес: Набережная, 12, Москва</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="color:white">&copy; 2025 Quay. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- Модальное окно -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content" id="modalContent">
+      <img id="modalImage" src="" alt="Изображение блюда">
+      <div class="modal-text">
+        <h2 id="modalTitle">Название блюда</h2>
+        <p id="modalDescription">Описание и состав блюда.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипт -->
+  <script>
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+
+    const dishDetails = {
+      "Кофе Эспрессо": {
+        img: "images/Espresso.jpg",
+        desc: "Состав: молотый кофе арабика, вода."
+      },
+      "Капучино": {
+        img: "images/Cappucino.jpg",
+        desc: "Состав: эспрессо, молоко, молочная пена."
+      },
+      "Латте": {
+        img: "images/Latte.jpg",
+        desc: "Состав: эспрессо, горячее молоко, немного пены."
+      },
+      "Тирамису": {
+        img: "images/Tiramisu.jpg",
+        desc: "Состав: маскарпоне, кофе, печенье савоярди, какао, яйца, сахар."
+      },
+      "Шоколадный торт": {
+        img: "images/Chocolate cake.jpg",
+        desc: "Состав: шоколад, мука, яйца, сахар, сливки."
+      },
+      "Чизкейк": {
+        img: "images/Cheese cake.jpg",
+        desc: "Состав: сливочный сыр, печенье, сливки, сахар."
+      },
+      "Паста Карбонара": {
+        img: "images/Karbonara.jpg",
+        desc: "Состав: паста, бекон, сливки, пармезан, яйцо."
+      },
+      "Пицца Маргарита": {
+        img: "images/Margarita.jpg",
+        desc: "Состав: томатный соус, моцарелла, базилик, тесто."
+      },
+      "Салат Цезарь": {
+        img: "images/Ceaser.jpg",
+        desc: "Состав: курица, салат ромэн, пармезан, сухарики, соус Цезарь."
+      }
+    };
+
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const title = item.querySelector('h3').innerText;
+        if (dishDetails[title]) {
+          modalImage.src = dishDetails[title].img;
+          modalTitle.innerText = title;
+          modalDescription.innerText = dishDetails[title].desc;
+          modalOverlay.style.display = 'flex';
+        }
+      });
+    });
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
